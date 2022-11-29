@@ -9,8 +9,22 @@ function App() {
       if (child.classList.contains('start')) {
         element.removeChild(child)
         console.log('removed');
+        createBubble();
       }
     }
+  }
+
+  function getRandomNumber(min, max) {
+    return Math.random() * (max - min) + min;
+  }
+
+  const createBubble = () => {
+    console.log('created');
+    const node = document.createElement("div");
+    node.style.marginTop = getRandomNumber(0, 450);
+    node.style.marginLeft = getRandomNumber(0, 750);
+    node.classList.add("target-bubble");
+    document.getElementById('game-box').appendChild(node)
   }
 
   return (
